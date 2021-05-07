@@ -18,9 +18,11 @@
 <a href="#" id="linkElement"></a>
 <script>
   const res = document.location.search.match(/link=([^&]+)/)
+  const isAutoopen = document.location.search.match(/qutoopen=true/)
   const link = res ? decodeURIComponent(res[1]) : 'undefined'
   linkElement.innerHTML = link
   linkElement.setAttribute('href', link)
+  if (isAutoopen) window.open(link)
 </script>
 </body>
 </html>
