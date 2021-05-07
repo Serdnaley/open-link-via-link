@@ -1,8 +1,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Open link via link</title></head>
+  <title>Open link via link</title>
+  <style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+  </style>
+</head>
 <body>
-<script>window.open(document.location.search.match(/link=([^&]+)/)[1])</script>
+<a href="#" id="linkElement"></a>
+<script>
+  const res = document.location.search.match(/link=([^&]+)/)
+  const link = res ? res[1] : 'undefined'
+  linkElement.innerHTML = link
+  linkElement.setAttribute('href', link)
+  window.open()
+</script>
 </body>
 </html>
