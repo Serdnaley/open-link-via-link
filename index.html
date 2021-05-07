@@ -16,7 +16,7 @@
 <a href="#" id="linkElement"></a>
 <script>
   const res = document.location.search.match(/link=([^&]+)/)
-  const link = res ? res[1] : 'undefined'
+  const link = res ? decodeURIComponent(res[1]) : 'undefined'
   linkElement.innerHTML = link
   linkElement.setAttribute('href', link)
   window.open()
